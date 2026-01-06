@@ -1,8 +1,12 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #f4f4f4;
 }
 
 /* Navbar */
@@ -10,42 +14,48 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #111;
-  padding: 15px 20px;
-  position: sticky;
+  padding: 15px 25px;
+  position: fixed;
+  width: 100%;
   top: 0;
-  z-index: 100;
+  z-index: 999;
+  transition: background 0.3s;
 }
 
-.nav-main .logo img {
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
   width: 40px;
 }
-.nav-main .logo span {
-  color: rgb(0, 0, 0);
+
+.logo span {
+  color: white;
   font-size: 1.4rem;
+  font-weight: 700;
   margin-left: 10px;
 }
-.nav-main nav ul {
+
+nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
 }
-/* Navbar Links */
-.nav-main nav ul li a {
-  color: #000;       /* black text */
-  font-weight: bold; /* bold text */
+
+nav ul li a {
+  color: white;
   text-decoration: none;
-}
-.nav-main nav ul li a:hover {
-  color: #3179c7;
+  font-weight: 700;
 }
 
-/* Hero Video */
+/* Hero */
 .hero-banner {
   position: relative;
-  height: 100vh; /* full screen initially */
+  height: 100vh;
   overflow: hidden;
-  transition: height 0.3s ease; /* smooth shrink */
+  transition: height 0.4s ease;
 }
 
 .hero-banner video {
@@ -54,203 +64,106 @@
   object-fit: cover;
 }
 
-
-/* Hero text left-center overlay */
-.hero-text.hero-left-center {
-    position: absolute;
-    top: 50%;           /* vertical middle */
-    left: 80px;         /* shift slightly right from left */
-    transform: translateY(-50%); /* vertical center */
-    text-align: left;
-    color: white;
-    background: transparent; /* no box */
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-    padding: 0;
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  transform: translateY(-50%);
+  color: white;
+  text-shadow: 2px 2px 8px black;
 }
 
-/* Heading */
-.hero-text.hero-left-center h1 {
-    font-size: 3rem;
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 15px;       /* space below heading */
-    margin-left: 10px;         /* move slightly right */
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 900;
 }
 
-/* Paragraph / Subtext */
-.hero-text.hero-left-center p {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 25px;       /* push button further down */
-    margin-left: 10px;         /* align with heading */
+.hero-text p {
+  margin: 15px 0;
 }
 
-/* Button */
-.hero-text.hero-left-center .btn-primary {
-    background: rgba(255,107,107,0.9);
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s;
-    display: inline-block;
-    margin-left: 10px; /* align with heading + paragraph */
+.btn-primary {
+  background: #ff6b6b;
+  padding: 12px 25px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.hero-text.hero-left-center .btn-primary:hover {
-  background: rgba(255,59,59,0.9);
-}
-
-
-/* Category Icons Section */
+/* Categories */
 .feature-cats {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin: 40px 0;
+  gap: 40px;
+  padding: 60px 0;
 }
-.feature-cats .cat {
+
+.cat {
   text-align: center;
-  width: 120px;
 }
-.feature-cats .cat img {
+
+.cat img {
   width: 80px;
 }
 
-/* Product Grid */
+/* Products */
 .product-grid {
   padding: 40px 20px;
   text-align: center;
 }
+
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
   gap: 20px;
 }
+
 .product-card {
-  background: #fff;
-  padding: 25px;
+  background: white;
+  padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
 }
 
 /* Footer */
 .main-footer {
   background: #111;
   color: white;
-  padding: 25px 20px;
   text-align: center;
+  padding: 30px 20px;
 }
+
 .footer-links {
   display: flex;
   justify-content: center;
   gap: 40px;
   margin-bottom: 15px;
 }
-.footer-col h4 {
-  margin-bottom: 10px;
-}
+
 .footer-col a {
   display: block;
+  color: #aaa;
+  text-decoration: none;
+}
+.footer-contact {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.footer-contact h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-contact p {
   color: #ccc;
-  text-decoration: none;
-  margin-bottom: 6px;
-}
-/* Navbar Links */
-.nav-main nav ul li a {
-  color: #000;       /* black text */
-  font-weight: bold; /* bold text */
-  text-decoration: none;
-}
-
-.nav-main nav ul li a:hover {
-  color: #007bff;    /* hover color optional */
-}
-/* Apply Roboto globally */
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-/* Navbar links */
-.nav-main nav ul li a {
-  font-family: 'Roboto', sans-serif;
-  color: #000;
-  font-weight: 700; /* bold links */
-}
-
-/* Hero text */
-.hero-text.hero-left-center h1,
-.hero-text.hero-left-center p,
-.hero-text.hero-left-center .btn-primary {
-  font-family: 'Roboto', sans-serif;
-}
-@media (max-width: 768px) {
-
-  /* Navbar */
-  .nav-main {
-    padding: 10px 15px;
-  }
-
-  .nav-main nav ul {
-    gap: 12px;
-  }
-
-  .nav-main nav ul li a {
-    font-size: 0.85rem;
-  }
-
-  .nav-main .logo span {
-    font-size: 1.1rem;
-  }
-
-  /* Hero section */
-  .hero-banner {
-    height: 70vh; /* mobile height */
-  }
-
-  /* Hero text */
-  .hero-text.hero-left-center {
-    left: 20px;         /* less space on mobile */
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .hero-text.hero-left-center h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero-text.hero-left-center p {
-    font-size: 1rem;
-  }
-
-  .hero-text.hero-left-center .btn-primary {
-    padding: 10px 18px;
-    font-size: 0.9rem;
-  }
-}
-@media (max-width: 480px) {
-
-  .hero-banner {
-    height: 60vh;
-  }
-
-  .hero-text.hero-left-center {
-    left: 15px;
-  }
-
-  .hero-text.hero-left-center h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero-text.hero-left-center p {
-    font-size: 0.9rem;
-  }
-
-  .hero-text.hero-left-center .btn-primary {
-    padding: 8px 15px;
-    font-size: 0.85rem;
-  }
+  font-size: 0.95rem;
+  margin: 5px 0;
 }
