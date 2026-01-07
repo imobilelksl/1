@@ -232,6 +232,7 @@ nav ul li a {
     font-size: 1.5rem;
   }
 }
+/* ---------- MOBILE / TABLET ---------- */
 @media (max-width: 992px) {
   .hero-text h1 { font-size: 2.5rem; }
   .product-image { width: 300px; }
@@ -258,22 +259,12 @@ nav ul li a {
 
 @media (max-width: 360px) { .logo span { display: none; } }
 
-/* ------------------ MEDIA SAFETY ------------------ */
+/* ---------- MEDIA SAFETY ---------- */
 img, video, iframe { max-width: 100%; height: auto; pointer-events: none; user-select: none; }
 
-/* ------------------ ANIMATIONS ------------------ */
+/* ---------- ANIMATIONS ---------- */
 @keyframes glow {
   0% { filter: brightness(1); }
   50% { filter: brightness(1.3); }
   100% { filter: brightness(1); }
-}
-
-@keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: scale(1.05); }
-  100% { opacity: 1; transform: scale(1); }
 }
