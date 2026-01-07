@@ -5,6 +5,13 @@
   font-family: 'Roboto', sans-serif;
 }
 
+/* 🔒 GLOBAL MOBILE SAFETY FIX (DO NOT REMOVE) */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background: #f4f4f4;
 }
@@ -28,12 +35,12 @@ body {
 }
 
 .logo img {
-  width: 90px; /* bigger logo */
+  width: 90px;
   height: auto;
 }
 
 .logo span {
-  font-size: 1.8rem; /* adjust text with logo */
+  font-size: 1.8rem;
   color: white;
   font-weight: 700;
   margin-left: 10px;
@@ -72,6 +79,7 @@ nav ul li a {
   transform: translateY(-50%);
   color: white;
   text-shadow: 2px 2px 8px black;
+  max-width: 90%; /* 🔒 prevent overflow */
 }
 
 .hero-text h1 {
@@ -98,6 +106,7 @@ nav ul li a {
   justify-content: center;
   gap: 40px;
   padding: 60px 0;
+  flex-wrap: wrap; /* 🔒 mobile safe */
 }
 
 .cat {
@@ -126,15 +135,16 @@ nav ul li a {
   margin: auto;
   display: flex;
   gap: 40px;
-  align-items: center;      /* vertical center */
-  justify-content: center;  /* horizontal balance */
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* 🔒 prevent cut */
 }
 
 .product-image-box {
   flex: 1;
   display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center;     /* vertical center */
+  justify-content: center;
+  align-items: center;
 }
 
 .product-image {
@@ -158,7 +168,7 @@ nav ul li a {
   width: 180px;
   max-width: 100%;
   display: block;
-  margin: 0 auto; /* center inside card */
+  margin: 0 auto;
 }
 
 .product-card:hover {
@@ -178,6 +188,7 @@ nav ul li a {
   justify-content: center;
   gap: 40px;
   margin-bottom: 15px;
+  flex-wrap: wrap; /* 🔒 mobile safe */
 }
 
 .footer-col a {
@@ -253,7 +264,7 @@ nav ul li a {
   }
 
   .products {
-    grid-template-columns: 1fr; /* single column for mobile */
+    grid-template-columns: 1fr;
   }
 
   .product-image {
@@ -272,5 +283,16 @@ nav ul li a {
 
   .product-image {
     width: 180px;
+  }
+}
+
+/* 🔒 FINAL HARD MOBILE FIX (GUARANTEE) */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 360px) {
+  .logo span {
+    display: none;
   }
 }
