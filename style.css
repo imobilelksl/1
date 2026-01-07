@@ -5,7 +5,7 @@
   font-family: 'Roboto', sans-serif;
 }
 
-/* 🔒 GLOBAL MOBILE SAFETY */
+/* 🔒 GLOBAL MOBILE SAFETY FIX (DO NOT REMOVE) */
 html, body {
   width: 100%;
   max-width: 100%;
@@ -46,7 +46,6 @@ body {
   margin-left: 10px;
 }
 
-/* Nav */
 nav ul {
   list-style: none;
   display: flex;
@@ -64,6 +63,7 @@ nav ul li a {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  transition: height 0.4s ease;
 }
 
 .hero-banner video {
@@ -79,7 +79,7 @@ nav ul li a {
   transform: translateY(-50%);
   color: white;
   text-shadow: 2px 2px 8px black;
-  max-width: 90%;
+  max-width: 90%; /* 🔒 prevent overflow */
 }
 
 .hero-text h1 {
@@ -106,7 +106,11 @@ nav ul li a {
   justify-content: center;
   gap: 40px;
   padding: 60px 0;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* 🔒 mobile safe */
+}
+
+.cat {
+  text-align: center;
 }
 
 .cat img {
@@ -133,7 +137,14 @@ nav ul li a {
   gap: 40px;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100%; /* 🔒 prevent cut */
+}
+
+.product-image-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-image {
@@ -147,6 +158,8 @@ nav ul li a {
   padding: 25px;
   border-radius: 15px;
   text-align: center;
+  text-decoration: none;
+  color: #000;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
@@ -174,55 +187,93 @@ nav ul li a {
   display: flex;
   justify-content: center;
   gap: 40px;
-  flex-wrap: wrap;
+  margin-bottom: 15px;
+  flex-wrap: wrap; /* 🔒 mobile safe */
 }
 
-/* 🔥 MOBILE BRAND EFFECT */
-@media (max-width: 480px) {
-  .logo img {
-    display: none;
-  }
+.footer-col a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+}
 
-  .logo span {
-    font-size: 1.6rem;
-    font-weight: 900;
-    letter-spacing: 1px;
-    background: linear-gradient(90deg,#ff6b6b,#feca57,#48dbfb);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: glowMove 3s ease-in-out infinite;
-  }
+.footer-contact {
+  margin-bottom: 30px;
+  text-align: center;
+}
 
-  .hero-text {
-    left: 15px;
-  }
+.footer-contact h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
 
+.footer-contact p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin: 5px 0;
+}
+
+/* Responsive: Tablet + Mobile */
+@media (max-width: 992px) {
   .hero-text h1 {
-    font-size: 1.6rem;
+    font-size: 2.5rem;
   }
 
-  .products {
-    grid-template-columns: 1fr;
+  .product-image {
+    width: 300px;
   }
-}
 
-@media (max-width: 360px) {
+  .logo img {
+    width: 80px;
+  }
+
   .logo span {
-    display: none;
+    font-size: 1.5rem;
   }
 }
-
-/* 🔒 MEDIA SAFETY */
-img, video, iframe {
-  max-width: 100%;
-  height: auto;
-  pointer-events: none;
-  user-select: none;
+@media (max-width: 992px) {
+  .hero-text h1 { font-size: 2.5rem; }
+  .product-image { width: 300px; }
+  .logo img { width: 80px; }
+  .logo span { font-size: 1.5rem; }
 }
 
-/* Glow animation */
-@keyframes glowMove {
+@media (max-width: 768px) {
+  .nav-main { padding: 10px 15px; }
+  .logo img { width: 70px; }
+  .logo span { font-size: 1.4rem; }
+  .hero-text { left: 15px; }
+  .hero-text h1 { font-size: 1.8rem; }
+  .product-container { flex-direction: column; }
+  .product-image { width: 220px; }
+  .products { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 { font-size: 1.5rem; }
+  .btn-primary { padding: 8px 15px; }
+  .product-image { width: 180px; }
+}
+
+@media (max-width: 360px) { .logo span { display: none; } }
+
+/* ------------------ MEDIA SAFETY ------------------ */
+img, video, iframe { max-width: 100%; height: auto; pointer-events: none; user-select: none; }
+
+/* ------------------ ANIMATIONS ------------------ */
+@keyframes glow {
   0% { filter: brightness(1); }
   50% { filter: brightness(1.3); }
   100% { filter: brightness(1); }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
 }
